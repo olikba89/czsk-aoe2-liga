@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CZSK AoE2 LIGA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white">
+  <header class="bg-red-700 p-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <img src="Ligove-logo-bez-pozadia.png" alt="Logo ligy" class="h-12">
+      <h1 class="text-2xl font-bold">CZSK AoE2 LIGA</h1>
+    </div>
+    <nav class="flex gap-4">
+      <a href="#uvod" class="hover:text-yellow-400">Úvod</a>
+      <a href="#tabulka" class="hover:text-yellow-400">Tabulka týmů</a>
+      <a href="#rozpis" class="hover:text-yellow-400">Rozpis zápasů</a>
+      <a href="#pravidla" class="hover:text-yellow-400">Pravidla</a>
+      <a href="#kontakt" class="hover:text-yellow-400">Kontakt</a>
+    </nav>
+  </header>
+
+  <main class="p-4">
+    <section id="uvod" class="mb-8">
+      <h2 class="text-xl font-semibold text-yellow-400 mb-2">Vítejte v CZSK AoE2 Lize</h2>
+      <p class="text-gray-300">Oficiální liga pro hráče Age of Empires II z Česka a Slovenska. Zapojte se do zápasů, sledujte výsledky a porovnejte své síly s ostatními!</p>
+    </section>
+
+    <section id="tabulka" class="mb-8">
+      <h2 class="text-xl font-semibold text-yellow-400 mb-2">Tabulka týmů</h2>
+      <table class="w-full text-center border border-yellow-400">
+        <thead class="bg-red-700">
+          <tr>
+            <th class="border border-yellow-400 p-2">#</th>
+            <th class="border border-yellow-400 p-2">Tým</th>
+            <th class="border border-yellow-400 p-2">Zápasy</th>
+            <th class="border border-yellow-400 p-2">Výhry</th>
+            <th class="border border-yellow-400 p-2">Prohry</th>
+            <th class="border border-yellow-400 p-2">Body</th>
+          </tr>
+        </thead>
+        <tbody id="tabulkaBody">
+          <!-- Dynamicky doplněno JS -->
+        </tbody>
+      </table>
+    </section>
+
+    <section id="rozpis" class="mb-8">
+      <h2 class="text-xl font-semibold text-yellow-400 mb-2">Rozpis zápasů</h2>
+      <ul id="rozpisList" class="list-disc list-inside text-gray-300">
+        <!-- Dynamicky doplněno JS -->
+      </ul>
+    </section>
+
+    <section id="pravidla" class="mb-8">
+      <h2 class="text-xl font-semibold text-yellow-400 mb-2">Pravidla</h2>
+      <p class="text-gray-300">Hrajeme podle standardních pravidel Age of Empires II: Definitive Edition. Fair play je základ. Každý zápas je BO3 (best of 3).</p>
+    </section>
+
+    <section id="kontakt">
+      <h2 class="text-xl font-semibold text-yellow-400 mb-2">Kontakt</h2>
+      <p class="text-gray-300">Pro dotazy nás kontaktujte na: <a href="mailto:admin@czskaoe2liga.cz" class="text-yellow-400 underline">admin@czskaoe2liga.cz</a></p>
+    </section>
+  </main>
+
+  <script>
+    const tymy = [
+      { nazev: "Tým 1", zapasy: 3, vyhry: 2, prohry: 1, body: 6 },
+      { nazev: "Tým 2", zapasy: 3, vyhry: 1, prohry: 2, body: 3 },
+      { nazev: "Tým 3", zapasy: 3, vyhry: 0, prohry: 3, body: 0 }
+    ];
+
+    const rozpis = [
+      "Tým 1 vs Tým 2 - 10.7.2025 19:00",
+      "Tým 2 vs Tým 3 - 12.7.2025 18:00",
+      "Tým 3 vs Tým 1 - 15.7.2025 20:00"
+    ];
+
+    const tbody = document.getElementById("tabulkaBody");
+    tymy.forEach((t, i) => {
+      const row = `<tr>
+        <td class="border border-yellow-400 p-1">${i + 1}</td>
+        <td class="border border-yellow-400 p-1">${t.nazev}</td>
+        <td class="border border-yellow-400 p-1">${t.zapasy}</td>
+        <td class="border border-yellow-400 p-1">${t.vyhry}</td>
+        <td class="border border-yellow-400 p-1">${t.prohry}</td>
+        <td class="border border-yellow-400 p-1">${t.body}</td>
+      </tr>`;
+      tbody.innerHTML += row;
+    });
+
+    const ul = document.getElementById("rozpisList");
+    rozpis.forEach(z => {
+      const li = `<li>${z}</li>`;
+      ul.innerHTML += li;
+    });
+  </script>
+</body>
+</html>
